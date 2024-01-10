@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
  * MultiProjectPlugin automatically create Gradle Projects for directories in a configured
  * root directory.
  */
+@SuppressWarnings("unused")
 public class MultiProjectPlugin implements Plugin<Settings> {
   private MultiProjectExtension extension;
   private Directory rootBuildDir;
@@ -40,13 +41,8 @@ public class MultiProjectPlugin implements Plugin<Settings> {
         settings
     );
 
-    try {
-      settings.getGradle().settingsEvaluated(this::settingsEvaluated);
-      settings.getGradle().rootProject(this::initRootProject);
-//      init(settings.getGradle());
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    settings.getGradle().settingsEvaluated(this::settingsEvaluated);
+    settings.getGradle().rootProject(this::initRootProject);
   }
 
   private void settingsEvaluated(Settings settings) {
