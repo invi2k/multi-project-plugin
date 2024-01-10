@@ -1,0 +1,48 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id "com.gradle.plugin-publish" version "1.2.1"
+}
+
+gradlePlugin {
+    plugins {
+        create("MultiProject") {
+            id = 'de.teekru.multi-project'
+            implementationClass = 'de.teekru.MultiProjectPlugin'
+        }
+    }
+}
+
+group = 'de.teekru'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            groupId = 'de.teekru'
+            artifactId = 'multi-project'
+            version = '1.0'
+        }
+    }
+
+    repositories {
+        mavenLocal()
+    }
+}
