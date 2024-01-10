@@ -12,6 +12,7 @@ import java.nio.file.NotDirectoryException;
  * multiproject.directory = "path to the root directory for the subprojects"
  * </code>
  */
+@SuppressWarnings("unused")
 public class MultiProjectExtension {
   private final Settings settings;
   private File directory;
