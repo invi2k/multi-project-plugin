@@ -5,8 +5,13 @@ plugins {
 }
 
 gradlePlugin {
+    vcsUrl = "https://github.com/invi2k/multi-project-plugin"
+    website = "https://github.com/invi2k/multi-project-plugin"
     plugins {
         create("MultiProject") {
+            displayName = "MultiProjectPlugin"
+            description = "Automatically create Gradle Projects for directories in a configured root directory"
+            tags = ['invi2k', 'multi', 'layout', 'project']
             id = 'de.teekru.multi-project'
             implementationClass = 'de.teekru.MultiProjectPlugin'
         }
