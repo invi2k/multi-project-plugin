@@ -1,6 +1,7 @@
 plugins {
     id 'java-gradle-plugin'
     id 'maven-publish'
+    id "com.gradle.plugin-publish" version "1.2.1"
 }
 
 gradlePlugin {
@@ -36,6 +37,18 @@ test {
 }
 
 publishing {
+//    publications {
+//        create(""){
+//
+//        }
+//        mavenJava(MavenPublication) {
+//            from (components["java"])
+//            groupId = 'de.teekru'
+//            artifactId = 'multi-project'
+//            version = '1.0'
+//        }
+//    }
+
     repositories {
         mavenLocal()
     }
